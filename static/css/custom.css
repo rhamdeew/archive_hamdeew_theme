@@ -1,0 +1,10 @@
+ul.pager {
+  list-style-type: none;
+  overflow: hidden;
+}
+ul.pager li.previous {
+  float: left;
+}
+ul.pager li.next {
+  float: right;
+}

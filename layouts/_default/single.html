@@ -14,6 +14,18 @@
     {{ end }}
     <div class="content">
       {{ .Content }}
+      <ul class="pager">
+        {{ if .Next }}
+        <li class="previous"><a href="{{ .Next.Permalink }}"><span aria-hidden="true">&larr;</span> Назад</a></li>
+        {{ else }}
+        <li class="previous disabled"><a href="#"><span aria-hidden="true">&larr;</span> Назад</a></li>
+        {{ end }}
+        {{ if .Prev }}
+        <li class="next"><a href="{{ .Prev.Permalink }}">Вперед <span aria-hidden="true">&rarr;</span></a></li>
+        {{ else }}
+        <li class="next disabled"><a href="#">Вперед <span aria-hidden="true">&rarr;</span></a></li>
+        {{ end }}
+      </ul>
       {{ if .Site.Params.Info.related }}
       <div class="related">{{ partial "related" . }}</div>
       {{ end }}
@@ -23,6 +35,7 @@
     {{ end}}
   </div>
 </section>
+
 {{ if (and (.Site.Params.Info.codeCopy) (findRE "<pre" .Content 1)) }}
     <script src="/js/copycode.js"></script>
 {{ end }}
