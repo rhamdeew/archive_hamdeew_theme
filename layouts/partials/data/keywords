@@ -1,0 +1,10 @@
+{{- with .Keywords -}}
+  {{- delimit . ", " -}}
+{{- else -}}
+  {{- if .IsPage -}}
+  {{- else -}}
+    {{- with .Site.Params.Info.keywords -}}
+      {{- . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}

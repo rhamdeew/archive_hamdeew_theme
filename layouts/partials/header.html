@@ -8,6 +8,7 @@
 {{ else }}
 <title>{{ .Site.Params.Info.homeTitle }}</title>
 {{ end }}
+{{- partial "seo/seo" . -}}
 {{ if .Site.Params.Info.enableSocial }}
 {{- partial "social/opengraph" . -}}
 {{ end }}
